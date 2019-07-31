@@ -112,7 +112,8 @@ class Variables(tk.Frame):
         def change_label(*args):
             name_string = self.decide_filename_var.get()
             name_string = name_string.replace(' ', '_')
-            final_string = '2542116_'+self.end_date_var.get().replace('/', '')+'_PLU_'+name_string+'.sql'
+            split_date = self.end_date_var.get().split('/')
+            final_string = '2542116_'+split_date[2]+split_date[0]+split_date[1]+'_PLU_'+name_string+'.sql'
             self.filename_preview_var.set(final_string)
         self.end_date_var.trace('w', change_label)
         self.decide_filename_var.trace('w', change_label)
