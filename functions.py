@@ -36,7 +36,7 @@ def generate_when_then_string(plu_names, plu_ids, ad_ids):
     len(ad_ids) == len(plu_names):
         for i in range(len(plu_names)):
             when_then_string += ('-- '+plu_names[i]+': '+plu_ids[i]+'\nWHEN ad_id IN ('+ad_ids[i]+')\nTHEN '+plu_ids[i]+'\n')
-        when_then_string = when_then_string[:-2] # remove the last newline
+        when_then_string = when_then_string[:-1] # remove the last newline
         return(when_then_string)
     else:
         raise Exception('Length of data not equal')
